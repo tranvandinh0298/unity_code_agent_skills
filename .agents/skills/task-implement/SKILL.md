@@ -1220,3 +1220,43 @@ of a working Unity gameplay feature.
 
 The goal is to implement the approved game feature
 correctly while preserving the rest of the project.
+
+
+## Targeted Review Fix Mode
+
+Supported command:
+
+    $task-implement <task-id> fix <review-id>
+
+Example:
+
+    $task-implement TASK-20261108-001 fix RV-001
+
+For multiple findings:
+
+    $task-implement TASK-20261108-001 fix RV-001,RV-003
+
+When invoked in fix mode:
+
+1. Read REVIEW.md and IMPLEMENTATION.md.
+2. Locate the specified review findings.
+3. Read related FR, AC, STEP, and PLAN references.
+4. Inspect the actual implementation.
+5. Determine whether the corrections remain within
+   the approved functional and technical scope.
+6. Stop affected fixes requiring BA or plan revision.
+7. Capture pre-change recovery snapshots.
+8. Apply minimal corrections to task-owned code.
+9. Run appropriate available validation.
+10. Update IMPLEMENTATION.md with a correction record.
+11. Report which findings were addressed and which
+    remain unresolved.
+
+Do not modify REVIEW.md.
+
+Do not mark review findings FIXED yourself.
+
+The task-review skill is responsible for independently
+verifying corrections through its recheck mode.
+
+Do not automatically fix unrelated findings.
